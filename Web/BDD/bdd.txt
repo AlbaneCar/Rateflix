@@ -1,0 +1,92 @@
+
+DROP TABLE Review;
+DROP TABLE User;
+DROP TABLE Movie;
+
+CREATE TABLE User ( 
+	userId SMALLINT PRIMARY KEY AUTO_INCREMENT, 
+	username VARCHAR(30) , 
+	password VARCHAR(255) , 
+	email VARCHAR(100) UNIQUE NOT NULL,
+	birthday DATE,
+	image VARCHAR(255) DEFAULT 'Photo_Profil_Vide.png',
+	admin BOOLEAN
+ ) ;
+
+CREATE TABLE Movie ( 
+	movieId SMALLINT PRIMARY KEY AUTO_INCREMENT, 
+	name VARCHAR(255) , 
+	director VARCHAR(255) , 
+	average DOUBLE,
+	releaseYear INT(4),
+	description text,
+	image VARCHAR(255)
+ ) ;
+
+CREATE TABLE Review ( 
+	reviewId SMALLINT PRIMARY KEY AUTO_INCREMENT, 
+	movieId SMALLINT ,
+	userId SMALLINT,
+	mark SMALLINT , 
+	comment VARCHAR(255) , 
+	date DATE, 
+	FOREIGN KEY(movieId) REFERENCES Movie(movieId) ON DELETE CASCADE,
+	FOREIGN KEY(userId) REFERENCES user(userId)
+) ;
+
+
+
+INSERT INTO Movie VALUES (1, "MAMMA MIA !", "Phyllida Lloyd", 4, "2008", "Plongez dans l\'énergie ensoleillée de \"Mamma Mia!\" où les tubes d\'ABBA se mêlent à une comédie musicale pleine de joie. Une escapade irrésistible sur une île grecque, cette expérience musicale vous promet des rires, de l\'amour et une ambiance festive à ne pas manquer. Un rendez-vous enchanteur qui vous fera chanter et danser tout au long de la soirée !", "Mamma_Mia_!.jpg");
+
+INSERT INTO Movie VALUES (2, "American Sniper", "Clint Eastwood", 4.5, "2014", 'Plongez au cœur de l\'action avec \'American Sniper\', un film captivant de Clint Eastwood basé sur la vie du légendaire tireur d\'élite Chris Kyle. Entre loyauté, sacrifice et choix déchirants, cette épopée cinématographique offre une expérience intense et inoubliable de la guerre moderne.', "American_Sniper.jpg");
+
+INSERT INTO Movie VALUES (3, "Fight Club", "David Fincher", 3.5, "1999", 'Découvrez l\'intensité inoubliable de \"Fight Club\", un thriller provocateur réalisé par David Fincher. Avec des performances exceptionnelles, le film offre une exploration saisissante de l\'identité, de la désillusion et des rebondissements inattendus. Une expérience cinématographique qui vous tiendra en haleine de bout en bout.', "Fight_Club.jpg");
+
+INSERT INTO Movie VALUES (4, "Titanic", "James Cameron", 4.7, "1997", 'Naviguez à travers l\'amour et la tragédie avec \"Titanic\", le film épique de James Cameron. Porté par la romance entre Leonardo DiCaprio et Kate Winslet, cette œuvre emblématique demeure une expérience cinématographique incontournable, mêlant passion et drame lors du célèbre naufrage du Titanic. Une aventure inoubliable qui continue de captiver les cœurs.', "Titanic.jpg");
+
+INSERT INTO Movie VALUES (5, "Avatar", "James Cameron", 4.8, "2009", 'Explorez la magie et la beauté de \"Avatar\", la création visionnaire de James Cameron. Avec des mondes fantastiques, une technologie révolutionnaire et une aventure épique, ce film transporte les spectateurs dans un univers visuellement époustouflant. Plongez dans cette histoire immersive de connexion, de nature et de résistance, portée par des effets spéciaux de pointe. Une expérience cinématographique qui repousse les limites de l\'imagination.', "Avatar.jpg");
+
+INSERT INTO Movie VALUES (6, "Harry Potter", "Chris Columbus", 4.2, "2001", 'Plongez dans l\'univers magique de \"Harry Potter à l\'École des Sorciers\", le premier volet de la saga emblématique. Suivez le jeune sorcier Harry Potter, interprété par Daniel Radcliffe, dans sa découverte du monde de la magie à Poudlard. Avec des aventures palpitantes, des personnages enchantés et une dose de mystère, ce film offre une entrée captivante dans l\'univers enchanteur de J.K. Rowling. Une expérience magique qui a enchanté des générations de fans.', "Harry_Potter.jpg");
+ 
+INSERT INTO Movie VALUES (7, "Interstellar", "Christopher Nolan", 3.9, "2014", 'Explorez l\'infini avec \"Interstellar\", l\'épopée spatiale de Christopher Nolan. Porté par Matthew McConaughey, ce voyage interstellaire allie science-fiction, émotion et des visuels à couper le souffle. Une expérience cinématographique époustouflante qui repousse les limites de l\'espace et de l\'imagination.', "Interstellar.jpg");
+
+INSERT INTO Movie VALUES (8, "Skyfall", "Sam Mendes", 4.1, "2012", 'Plongez dans l\'univers captivant de \"Skyfall\", le film de James Bond réalisé par Sam Mendes. Avec Daniel Craig dans le rôle emblématique, cette aventure allie l\'intrigue palpitante, l\'action intense et l\'élégance de l\'agent secret britannique. Entre des séquences d\'action spectaculaires et des rebondissements inattendus, \"Skyfall\" offre une dose inégalée d\'espionnage, de sophistication et de suspense. Un incontournable pour les amateurs de James Bond.', "Skyfall.jpg");
+
+INSERT INTO Movie VALUES (9, "Hors Normes", "Olivier Nakache x Eric Toledano", 4.3, "2019", 'Plongez dans l\'extraordinaire avec \"Hors Normes\", la réalisation unique d\'Éric Toledano et Olivier Nakache. Porté par Vincent Cassel et Reda Kateb, ce film explore l\'univers des éducateurs dévoués œuvrant auprès d\'enfants autistes. Entre humour, émotion et performances remarquables, \"Hors Normes\" offre une expérience cinématographique puissante et inspirante. Une histoire qui célèbre la diversité et la force de la connexion humaine.', "Hors_Normes.jpg");
+
+INSERT INTO Movie VALUES (10, "Pulp Fiction", "Quentin Tarentino", 3.8, "1994", 'Explorez le monde audacieux de \"Pulp Fiction\", le chef-d\'œuvre de Quentin Tarantino. Avec son récit non linéaire, ses dialogues mordants et ses personnages emblématiques, ce film redéfinit le genre du crime. Porté par une distribution exceptionnelle, dont John Travolta et Samuel L. Jackson, \"Pulp Fiction\" offre une expérience cinématographique captivante, mêlant humour noir, violence stylisée et originalité narrative. Un incontournable du cinéma moderne.', "Pulp_Fiction.jpg");
+
+INSERT INTO Movie VALUES (11, "Le Parrain", "Francis Ford Coppola", 3.1, "1972", 'Plongez dans l\'univers impitoyable de \"Le Parrain\", le chef-d\'œuvre incontournable de Francis Ford Coppola. Avec Marlon Brando dans le rôle emblématique de Don Vito Corleone, ce film explore la mafia italo-américaine avec une intensité dramatique et une complexité morale. Entre trahisons, loyautés et une narration magistrale, \"Le Parrain\" reste un pilier du cinéma, offrant une vision puissante et inoubliable du pouvoir et de la famille.', "Le_Parrain.jpg");
+
+INSERT INTO Movie VALUES (12, "Les Tuches 3", "Olivier Baroux", 3.4, "2018", 'Embarquez pour une aventure hilarante avec \"Les Tuche 3\", la comédie déjantée d\'Olivier Baroux. Retrouvez la famille Tuche dans une nouvelle escapade, cette fois à l\'international. Entre situations loufoques et humour décalé, ce troisième volet promet rires et divertissement. Plongez dans l\'univers absurde et attachant de la famille la plus délirante de France pour une expérience cinématographique légère et comique.', "Les_Tuches_3.jpg");
+
+
+INSERT INTO User VALUES (1, "Albane", "$2y$10$QOwSyxxP0cqJGFwfsrF9leSvG4gS/z.GVnM8I0V9EdTFXpLhPaKTS", "albane.carteron@gmail.com", "2002-02-08", 'Photo_Albane.jpg', TRUE);
+
+INSERT INTO User VALUES (2, "Xavier", "$2y$10$fEsK.ngyzL.EgO/hcKh7uOm4qFEzkzbSoBfSwKQ3thAs2PDITWLwK", "xavier.durumain@gmail.com", "2002-03-30", 'Photo_Xav.jpg', FALSE);
+
+INSERT INTO User VALUES (3, "Eugenie", "$2y$10$kLCdgk44YMT1wOi2pw4EN.wGNIl2OJPPC6sHjR0sGUOVPMiQz3YB.", "eugenie.rocheron@gmail.com", "2002-03-07", 'Photo_Eugenie.jpg', TRUE);
+
+INSERT INTO User VALUES (4, "Jules", "$2y$10$mIskfZgZdcPydk5IdFMtMOPs5khtMO/M1XVQN9cWXB9V0uROgOF.6", "jules.potiron@gmail.com", "2002-01-01", 'Photo_Profil_Vide.png', FALSE);
+
+INSERT INTO User VALUES (5, "Ambre", "$2y$10$sOXpdJNqCihVwYr5V.xYiuKBqGPGOKKNMTNouIJeZWaQpZ2tU2QeG", "ambre.santanach@gmail.com", "2002-03-30", 'Photo_Profil_Vide.png', TRUE);
+
+INSERT INTO User VALUES (6, "Lisa", "$2y$10$TD76PGZBz0HrSbr0JTmnSe/a7Tw5AC0uff5jpILkCbx66zDMcK0jq", "lisa.benvenuti@gmail.com", "2002-03-07", 'Photo_Profil_Vide.png', TRUE);
+
+INSERT INTO User VALUES (7, "Admin", "admin", "admin.admin@gmail.com", "2002-01-01", 'Photo_Profil_Vide.png', TRUE);
+
+INSERT INTO review VALUES (1, 2, 1, 4, "Excellent film, j'ai pas vu le temps passer, je recommande !", "2023-08-21");
+INSERT INTO review VALUES (2, 1, 1, 5, "Génial, film qui apporte de la bonne humeur !", "2023-08-29");
+INSERT INTO review VALUES (3, 1, 3, 5, "Les chansons sont cool !", "2023-07-29");
+INSERT INTO review VALUES (4, 3, 2, 3, "Sympa !", "2023-05-15");
+INSERT INTO review VALUES (5, 8, 4, 5, "Incroyable !", "2023-01-20");
+INSERT INTO review VALUES (6, 12, 3, 1, "Je déteste ce film !", "2023-04-20");
+INSERT INTO review VALUES (7, 11, 2, 4, "Palpitant !", "2023-05-20");
+INSERT INTO review VALUES (8, 6, 4, 2, "Trop de science fiction, je n'aime pas.", "2023-12-20");
+INSERT INTO review VALUES (9, 6, 1, 3, "Bof !", "2023-09-11");
+INSERT INTO review VALUES (10, 5, 2, 5, "J'adooore !", "2023-10-16");
+INSERT INTO review VALUES (11, 5, 3, 3, "Trop beau les Schtroumpf !", "2023-10-17");
+INSERT INTO review VALUES (12, 1, 2, 2, "Trop de musique !", "2023-07-24");
+INSERT INTO review VALUES (13, 1, 4, 5, "L'ambiance est cool !", "2023-05-29");
+INSERT INTO review VALUES (14, 1, 5, 1, "Trop d'amour !", "2023-02-14");
+
