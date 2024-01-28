@@ -1,6 +1,6 @@
 ### RATEFLIX School Project README
 
-#### Project Overview
+## Project Overview
 The project is divided into three distinct parts. With my team, we developed a platform similar to Allociné:
 
 1. **Infrastructure Project**: Creation of a virtual machine to host a platform similar to Allociné.
@@ -12,7 +12,7 @@ I was responsible for the Web part.
 #### Project Description
 The web application allows users to rate movies and obtain a personalized ranking, keeping track of viewed films while expressing their opinions.
 
-#### Web Application Structure
+## Web Application Structure
 The web application is composed of 7 pages:
 
 - **Register**: User account creation.
@@ -23,7 +23,7 @@ The web application is composed of 7 pages:
 - **HomeProfile**: User profile overview with left comments.
 - **EditProfile**: Edit user information.
 
-#### User Account Management
+## User Account Management
 - **Register**:
   - Users input their username, email, password (masked), and confirm their password.
   - Date of birth can also be provided, visible on the user's profile.
@@ -37,11 +37,11 @@ The web application is composed of 7 pages:
   - Users can change their forgotten password by inputting their email and a new password.
   - Error messages are displayed in case of mismatching passwords.
 
-#### User Interface
+## User Interface
 - Each page features a header with the site's name and a "Logout" button.
 - Clicking on the user's avatar and username redirects to the profile page.
 
-#### Pages Description
+## Pages Description
 - **SearchPage**:
   - Displays all movies on the site and includes a search bar.
   - Displays movie names as users type in the search bar.
